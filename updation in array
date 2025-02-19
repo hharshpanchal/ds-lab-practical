@@ -1,0 +1,81 @@
+#include <stdio.h>
+
+void updateSingleValue(int array[], int size) {
+    int index, newValue;
+
+
+    printf("Enter the index of the element to update (0 to %d): ", size - 1);
+    scanf("%d", &index);
+    if(index >= 0 && index < size) {
+       
+        printf("Enter the new value for index %d: ", index);
+        scanf("%d", &newValue);
+        
+        
+        array[index] = newValue;
+
+        printf("Array after updating the value at index %d: ", index);
+        for(int i = 0; i < size; i++) {
+            printf("%d ", array[i]);
+        }
+        printf("\n");
+    } else {
+        printf("Invalid index!\n");
+    }
+}
+
+void updateAllValues(int array[], int size) {
+    int newValue;
+
+
+    printf("Enter the new value to update all elements: ");
+    scanf("%d", &newValue);
+
+    
+    for(int i = 0; i < size; i++) {
+        array[i] = newValue;
+    }
+
+    printf("Array after updating all values: ");
+    for(int i = 0; i < size; i++) {
+        printf("%d ", array[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int n, choice;
+
+    
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
+
+    int array[n];
+
+    
+    printf("Enter %d elements:\n", n);
+    for(int i = 0; i < n; i++) {
+        printf("Element %d: ", i + 1);
+        scanf("%d", &array[i]);
+    }
+
+    
+    printf("\nChoose an option:\n");
+    printf("1. Update a single value\n");
+    printf("2. Update all values\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    switch(choice) {
+        case 1:
+            updateSingleValue(array, n);
+            break;
+        case 2:
+            updateAllValues(array, n);
+            break;
+        default:
+            printf("Invalid choice!\n");
+    }
+
+    return 0;
+}
