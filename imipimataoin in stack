@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX 5  
+int stack[MAX];
+int main() {
+    int top = -1;  
+    int value;
+    for (int i = 0; i < MAX; i++) {
+        printf("Enter value to push into stack (Index %d): ", i);
+        scanf("%d", &value);
+        stack[i] = value;
+        top++;
+    }
+    printf("\nThe elements in the stack are:\n");
+    for (int i = 0; i <= top; i++) {
+        printf("%d ", stack[i]);
+    }
+    printf("\n");
+    if (top >= 0) {
+        printf("Top element is: %d\n", stack[top]);
+    } else {
+        printf("Stack is empty.\n");
+    }
+  return 0;
+}
